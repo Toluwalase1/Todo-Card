@@ -3,8 +3,7 @@
 A clean, modern single-task card UI built with semantic HTML, CSS, and vanilla JavaScript.
 
 ## Live URL
-- Add your deployed link here (Netlify / Vercel / GitHub Pages):
-- Example: https://your-project-name.netlify.app
+https://todo-card-two.vercel.app/
 
 
 
