@@ -206,6 +206,202 @@ time {
   color: #fff;
 }
 
+.priority-indicator {
+  width: 0.5rem;
+  height: 3rem;
+  border-radius: 999px;
+  margin-right: 0.3rem;
+  background: #ddd;
+  transition: background-color 200ms ease;
+}
+
+.todo-card.priority-high .priority-indicator {
+  background: #ff3333;
+}
+
+.todo-card.priority-medium .priority-indicator {
+  background: #ffaa00;
+}
+
+.todo-card.priority-low .priority-indicator {
+  background: #00aa00;
+}
+
+.status-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+}
+
+.status {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid #111;
+  border-radius: 999px;
+  min-width: 6rem;
+}
+
+.status-control-select {
+  display: none;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #111;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.status-control-select:focus {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
+.description-wrapper {
+  position: relative;
+}
+
+.description {
+  margin: 0;
+  color: #2d2d2d;
+  line-height: 1.55;
+  font-size: 0.97rem;
+  max-height: 4.5rem;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+}
+
+.description.expanded {
+  max-height: none;
+}
+
+.expand-toggle {
+  display: none;
+  position: absolute;
+  bottom: -1.8rem;
+  left: 0;
+  background: none;
+  border: none;
+  color: #111;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.description.truncated ~ .expand-toggle {
+  display: block;
+}
+
+.time-display {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.overdue-indicator {
+  display: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background: #ff3333;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.todo-card.overdue .overdue-indicator {
+  display: inline-block;
+}
+
+.todo-card.overdue .status,
+.todo-card.overdue .time-remaining-wrapper {
+  color: #ff3333;
+}
+
+.edit-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.2rem;
+  border: 1px dashed #999;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.edit-form.hidden {
+  display: none;
+}
+
+.form-group {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.form-input,
+.form-textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.6rem;
+  border: 1px solid #999;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 5rem;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.form-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.form-btn.primary {
+  background: #111;
+  color: #fff;
+}
+
+.form-btn.primary:hover {
+  background: #333;
+}
+
+.form-btn.cancel:hover {
+  background: #f0f0f0;
+}
+
 @media (max-width: 720px) {
   .todo-card {
     padding: 1.1rem;
@@ -226,5 +422,13 @@ time {
 
   .meta-grid {
     grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-btn {
+    width: 100%;
   }
 }
